@@ -1,7 +1,7 @@
 import database
 from database import connect, delete_bean
 
-MENU_PROMPT = """-- COFFEE BEAN APP --
+MENU_PROMPT = """-- COFFEE BEAN APP2 --
 
 Please choose one of these options:
 
