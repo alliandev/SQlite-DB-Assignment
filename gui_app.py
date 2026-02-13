@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter import messagebox
 import database
 
-
 class CoffeeBeanApp:
     def __init__(self, root):
         self.root = root
@@ -98,7 +97,7 @@ class CoffeeBeanApp:
             self.result_box.insert(
                 tk.END,
                 f"Best preparation for {bean['name']}:\n"
-                f"{bean['method']} - {bean['rating']}/100\n"
+                f"{bean['method']}\n"
             )
         else:
             self.result_box.insert(tk.END, "No bean found.\n")
