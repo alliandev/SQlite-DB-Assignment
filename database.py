@@ -72,3 +72,29 @@ def update_bean_rating(connection, name, rating):
 def delete_bean(connection, name):
     with connection:
         connection.execute(DELETE_BEAN, (name,))
+
+def delete_bean_by_id(conn, bean_id):
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM beans WHERE id=?", (bean_id,))
+    conn.commit()
+
+
+def sort_beans(conn, column, order):
+
+    cursor = conn.cursor()
+
+    query = f"SELECT * FROM beans ORDER BY {column} {order}"
+    cursor.execute(query)
+
+    rows = cursor.fetchall()
+
+    beans = []
+    for row in rows:
+        beans.append({
+            "id": row[0],
+            "name": row[1],
+            "method": row[2],
+            "rating": row[3]
+        })
+
+    return beans
